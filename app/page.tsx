@@ -1,40 +1,50 @@
-"use client"
-import { useState } from "react";
-import Main from "@/components/Main";
-export default function VerificationPage() {
-  const [isVerified, setIsVerified] = useState(false);
+"use client";
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsVerified(event.target.value.trim().length > 0);
-  };
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const [emailVerified, setEmailVerified] = useState(false);
+  const [mobileVerified, setMobileVerified] = useState(false);
+  const router = useRouter();
+  const isVerified = emailVerified && mobileVerified;
+  useEffect(() => {
+    if (isVerified) {
+      router.push("/main");
+    }
+  }, [isVerified, router]);
+
   return (
-    <div className="relative flex items-center justify-center h-screen bg-black">
-      <div className={`absolute inset-0 transition-all duration-300 ${!isVerified ? "backdrop-blur-xl" : ""}`}>
-        <Main/>
-      </div>
-      {/* Verification Section */}
-      <div className="relative z-10  p-6 rounded-xl shadow-md w-[400px] flex flex-col gap-4 text-black font-outfit">
-        <div className="flex items-center justify-between border border-gray-300 rounded-lg p-3 bg-[#f1f3f5]">
-          <input
-            type="text"
-            placeholder="Verify Your E-mail"
-            onChange={handleInputChange}
-            className="w-full outline-none text-black bg-[#f1f3f5]"
-          />
-          <button className="bg-green-500 text-white px-4 py-1 rounded-lg">
-            Verify
-          </button>
-        </div>
-        <div className="flex items-center justify-between border border-gray-300 rounded-lg p-3 bg-[#f1f3f5]">
-          <input
-            type="text"
-            placeholder="Verify Your Mobile"
-            onChange={handleInputChange}
-            className="w-full outline-none text-black"
-          />
-          <button className="bg-green-500 text-white px-4 py-1 rounded-lg">
-            Verify
-          </button>
+    <div className="relative flex items-center justify-center h-screen bg-black font-outfit font-semibold">
+      <div className="relative z-10 text-center">
+        <div className="mt-6 space-y-4">
+          <div className="flex items-center justify-between w-96 h-16 p-4 bg-white rounded-lg shadow-lg text-black">
+            <input
+              type="text"
+              placeholder="Verify Your E-mail"
+              className="w-full pl-10 pr-10 py-2 text-black focus:ring focus:ring-teal-400 outline-none placeholder:text-gray-500"
+            />
+            <button
+              className="bg-green-500 text-white px-4 py-1 rounded-lg"
+              onClick={() => setEmailVerified(true)}
+            >
+              Verify
+            </button>
+          </div>
+
+          <div className="flex items-center justify-between w-96 h-16 p-4 bg-white rounded-lg shadow-lg text-black">
+            <input
+              type="text"
+              placeholder="Verify Your Mobile"
+              className="w-full pl-10 pr-10 py-2  text-black focus:ring focus:ring-teal-400 outline-none placeholder:text-gray-500"
+            />
+            <button
+              className="bg-green-500 text-white px-4 py-1 rounded-lg"
+              onClick={() => setMobileVerified(true)}
+            >
+              Verify
+            </button>
+          </div>
         </div>
       </div>
     </div>
