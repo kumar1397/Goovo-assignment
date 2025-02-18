@@ -24,8 +24,9 @@ export default function Navbar () {
           </Link>
         </li>
         <li>
-          <Link href="/create-event" className="text-teal-400 font-semibold hover:underline">
+          <Link href="/create-event" className="text-teal-400 font-semibold ">
             Create Event
+            <div className="border-2 w-28 border-[#358c80]"></div>
           </Link>
         </li>
       </ul>

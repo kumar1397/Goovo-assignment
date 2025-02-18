@@ -24,7 +24,7 @@ export default function TieredPricing() {
               <input
                 type="text"
                 placeholder="e.g Early Bird"
-                className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
 
@@ -34,7 +34,7 @@ export default function TieredPricing() {
               <input
                 type="text"
                 placeholder="Enter Amount"
-                className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
 
@@ -45,7 +45,7 @@ export default function TieredPricing() {
                 <input
                   type="text"
                   placeholder="DD/MM/YYYY"
-                  className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                  className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
                 />
                 <FaClock className="absolute top-3 right-4 text-gray-400" />
               </div>
@@ -57,22 +57,22 @@ export default function TieredPricing() {
               <input
                 type="text"
                 placeholder="Limited slots"
-                className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
           </div>
         ))}
 
         {/* Buttons */}
-        <div className="flex gap-4">
+        <div className="flex justify-between items-center gap-4">
           <button
             onClick={addMore}
-            className="flex items-center gap-2 px-6 py-2 border border-teal-400 text-teal-400 rounded-lg hover:bg-teal-500 hover:text-black transition"
+            className="flex  items-center gap-2 px-6 py-2 border border-teal-400 text-teal-400 rounded-lg hover:bg-teal-500 hover:text-black transition"
           >
             <FaPlus />
             Add More
           </button>
-          <button className="px-6 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition">
+          <button className="px-6 py-2 bg-[#1e2524] rounded-lg hover:bg-gray-700 transition">
             Done
           </button>
         </div>
