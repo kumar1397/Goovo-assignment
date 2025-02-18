@@ -4,7 +4,6 @@ import { AiOutlineExport } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { IoFlashOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { PiImage } from "react-icons/pi";
 import Image from "next/image"
 export default function EventDetails() {
   const [displayFile, setDisplayFile] = useState(false);
@@ -48,7 +47,7 @@ export default function EventDetails() {
         <div className="grid grid-cols-2 gap-4 ">
           <div className="border border-gray-700 rounded-lg p-4 flex flex-col items-center justify-between h-64 text-gray-400 bg-[#1e2524]">
             <div className="flex flex-col justify-center items-center space-y-2">
-              <PiImage className="text-3xl mt-10"/> 
+              <Image src="image.svg" alt="image" width={30} height={30} className="text-3xl mt-10"/> 
               <span>Click to upload horizontal</span>
             </div>
             <div className="flex flex-row space-x-3 mt-auto">
@@ -65,17 +64,11 @@ export default function EventDetails() {
             <p className="text-yellow-400 font-bold">Mahabalipuram Trek</p>
           </div>
         </div>
-
-        {/* Display File Toggle */}
+     
         <div className="mt-4 flex items-center">
-          <input
-            type="checkbox"
-            id="displayFile"
-            className="mr-2"
-            onChange={() => setDisplayFile(!displayFile)}
-          />
-          <label htmlFor="displayFile" className="text-sm">
-            Display file on the card
+          <input type="checkbox" id="tierPricing" className="mr-2 w-5 h-5 my-4 bg-[#1e2524]" onChange={() => setDisplayFile(!displayFile)}/>
+          <label htmlFor="tierPricing" className="text-sm">
+           Display file on the card
           </label>
         </div>
 

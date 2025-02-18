@@ -1,14 +1,17 @@
-"use client"
+"use client";
 import { useState } from "react";
-import { FaPlus, FaClock } from "react-icons/fa";
-
+import { FaPlus } from "react-icons/fa";
+import Image from "next/image";
 export default function TieredPricing() {
   const [pricingOptions, setPricingOptions] = useState([
     { name: "", price: "", deadline: "", slots: "" },
   ]);
 
   const addMore = () => {
-    setPricingOptions([...pricingOptions, { name: "", price: "", deadline: "", slots: "" }]);
+    setPricingOptions([
+      ...pricingOptions,
+      { name: "", price: "", deadline: "", slots: "" },
+    ]);
   };
 
   return (
@@ -17,14 +20,17 @@ export default function TieredPricing() {
         <h2 className="text-xl font-semibold mb-4">Tiered Pricing Options</h2>
 
         {pricingOptions.map((option, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div
+            key={index}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"
+          >
             {/* Name */}
             <div>
               <label className="block text-sm mb-2">Name</label>
               <input
                 type="text"
                 placeholder="e.g Early Bird"
-                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full px-4 h-16 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
 
@@ -34,20 +40,28 @@ export default function TieredPricing() {
               <input
                 type="text"
                 placeholder="Enter Amount"
-                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full h-16 px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
 
             {/* Availability Deadline */}
             <div>
-              <label className="block text-sm mb-2">Availability Deadline</label>
+              <label className="block text-sm mb-2">
+                Availability Deadline
+              </label>
               <div className="relative">
                 <input
                   type="text"
                   placeholder="DD/MM/YYYY"
-                  className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                  className="w-full h-16 px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
                 />
-                <FaClock className="absolute top-3 right-4 text-gray-400" />
+                <Image
+                  src="timer.svg"
+                  alt="timer"
+                  width={20}
+                  height={20}
+                  className="absolute top-3 right-4 text-gray-400"
+                />
               </div>
             </div>
 
@@ -57,7 +71,7 @@ export default function TieredPricing() {
               <input
                 type="text"
                 placeholder="Limited slots"
-                className="w-full px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
+                className="w-full h-16 px-4 py-2 bg-[#1e2524] rounded-lg border border-gray-700 focus:ring focus:ring-teal-400 outline-none"
               />
             </div>
           </div>
@@ -67,12 +81,12 @@ export default function TieredPricing() {
         <div className="flex justify-between items-center gap-4">
           <button
             onClick={addMore}
-            className="flex  items-center gap-2 px-6 py-2 border border-teal-400 text-teal-400 rounded-lg hover:bg-teal-500 hover:text-black transition"
+            className="flex  items-center gap-2 px-6 py-2 border border-teal-400 text-white rounded-lg hover:bg-teal-500 hover:text-black transition"
           >
             <FaPlus />
             Add More
           </button>
-          <button className="px-6 py-2 bg-[#1e2524] rounded-lg hover:bg-gray-700 transition">
+          <button className="px-8 py-4 bg-black text-white text-xl font-bold rounded-xl shadow-sm shadow-teal-500 ">
             Done
           </button>
         </div>
